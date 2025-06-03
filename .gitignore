@@ -1,0 +1,1 @@
+echo -e "__pycache__/\n*.pyc\n*.env\nvenv/\n*.log\n*.mp3" > .gitignore
