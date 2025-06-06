@@ -244,13 +244,13 @@ def execute_command(command):
         sys.exit(0)
 
     elif "desligar computador" in command:
-        speak("Iniciando desligamento em 30 segundos", 'high')
-        os.system("shutdown /s /t 30")
+        speak("Iniciando desligamento em 60 segundos", 'high')
+        os.system("shutdown /s /t 60")
         return
         
     elif "reiniciar computador" in command:
-        speak("Preparando reinicialização em 30 segundos", 'high')
-        os.system("shutdown /r /t 30")
+        speak("Preparando reinicialização em 60 segundos", 'high')
+        os.system("shutdown /r /t 60")
         return
         
     elif "cancelar desligamento" in command:
@@ -260,7 +260,7 @@ def execute_command(command):
         
     # CONTROLE DE APLICATIVOS
 
-    elif "qual a boa de hoje" in command:
+    elif "qual a boa de hoje" in command or "boa de hoje" in command:
         webbrowser.open("https://www.youtube.com/watch?v=f2D2hEFnHLU")
         speak("Olá chefe parabéns pelo seu trabalho, como vai seu dia?")
         return
