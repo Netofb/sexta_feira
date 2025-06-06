@@ -260,7 +260,7 @@ def execute_command(command):
         
     # CONTROLE DE APLICATIVOS
 
-    elif "acorda criança" in command:
+    elif "qual a boa de hoje" in command:
         webbrowser.open("https://www.youtube.com/watch?v=f2D2hEFnHLU")
         speak("Olá chefe parabéns pelo seu trabalho, como vai seu dia?")
         return
@@ -309,7 +309,7 @@ def execute_command(command):
         
     # RESPOSTAS PERSONALIZADAS
     elif any(palavra in command for palavra in ["quem é você", "seu nome", "qual seu nome"]):
-        speak(f"Sou {ASSISTANT_NAME} à assitente pessoal do Chefe Fábio, Pronta para ajudar!")
+        speak(f"Sou {ASSISTANT_NAME} à assistente pessoal do Chefe Fábio, Pronta para ajudar!")
         return
         
     elif "obrigado" in command or "valeu" in command:
