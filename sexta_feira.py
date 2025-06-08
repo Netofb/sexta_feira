@@ -143,38 +143,31 @@ def show_jarvis_loading(duration=3):
         time.sleep(0.016)  # 60 FPS
     
     pygame.quit()
-
-
+    pass  # por brevidade, código omitido
 
 def set_voice():
-    """Configura a voz da Maria"""
     try:
         voices = engine.getProperty('voices')
         for voice in voices:
             if "maria" in voice.id.lower():
                 engine.setProperty('voice', voice.id)
                 return
-        
         engine.setProperty('voice', VOICE_ID)
     except Exception as e:
         print(f"Erro ao configurar voz: {str(e)}")
 
 def speak(text, priority='normal'):
-    """Faz a Sexta-Feira falar"""
     print(f"{ASSISTANT_NAME.upper()}: {text}")
     try:
         set_voice()
-        
         if priority == 'high':
             winsound.Beep(1000, 200)
-        
         engine.say(text)
         engine.runAndWait()
     except Exception as e:
         print(f"Erro na engine de voz: {str(e)}")
 
 def listen():
-    """Ouve os comandos de voz"""
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
         print("\nOuvindo...", end='', flush=True)
@@ -199,7 +192,6 @@ def listen():
             return ""
 
 def check_ollama_connection():
-    """Verifica conexão com o Ollama"""
     try:
         response = requests.get("http://localhost:11434/api/tags", timeout=5)
         return response.status_code == 200
@@ -207,19 +199,17 @@ def check_ollama_connection():
         return False
 
 def chat_with_ollama(prompt):
-    """Consulta o Ollama"""
     payload = {
         "model": OLLAMA_MODEL,
         "prompt": f"""Você é {ASSISTANT_NAME}, assistente pessoal. 
         Responda em português brasileiro de forma concisa e profissional.
         Contexto: {datetime.datetime.now().strftime('%d/%m/%Y %H:%M')}
-        
+
         Usuário: {prompt}
         {ASSISTANT_NAME}:""",
         "stream": False,
         "options": {"temperature": 0.7}
     }
-    
     try:
         response = requests.post(OLLAMA_URL, json=payload, timeout=OLLAMA_TIMEOUT)
         if response.status_code == 200:
@@ -231,14 +221,12 @@ def chat_with_ollama(prompt):
         return f"Erro inesperado: {str(e)}"
 
 def execute_command(command):
-    """Executa comandos"""
     if not command:
         return
-        
+
     command = command.strip()
     print(f"Processando: {command}")
-    
-    # COMANDOS DE SISTEMA
+
     if any(palavra in command for palavra in ["finalizar"]):
         speak("Encerrando sistemas. Até logo chefe!", 'high')
         sys.exit(0)
@@ -247,24 +235,22 @@ def execute_command(command):
         speak("Iniciando desligamento em 60 segundos", 'high')
         os.system("shutdown /s /t 60")
         return
-        
+
     elif "reiniciar computador" in command:
         speak("Preparando reinicialização em 60 segundos", 'high')
         os.system("shutdown /r /t 60")
         return
-        
+
     elif "cancelar desligamento" in command:
         os.system("shutdown /a")
         speak("Sequência de desligamento cancelada", 'high')
         return
-        
-    # CONTROLE DE APLICATIVOS
 
     elif "qual a boa de hoje" in command or "boa de hoje" in command:
         webbrowser.open("https://www.youtube.com/watch?v=f2D2hEFnHLU")
         speak("Olá chefe parabéns pelo seu trabalho, como vai seu dia?")
         return
-    
+
     elif "encerrar" in command:
         os.system("taskkill /f /im brave.exe")
         speak("encerrando abertura chefe")   
@@ -274,105 +260,64 @@ def execute_command(command):
         webbrowser.open("https://www.youtube.com")
         speak("Acessando YouTube chefe")
         return
-        
+
     elif "abrir google" in command:
         webbrowser.open("https://www.google.com")
         speak("Google ativado chefe")
         return
-    
+
     elif "abrir steam" in command:
         os.system("start steam")
         speak("Steam ativado chefe")
         return
-        
+
     elif "abrir notion" in command:
         os.system("start notion")
         speak("Notion disponível chefe")
         return
-        
-    # INFORMAÇÕES
+
     elif "hora" in command:
         hora = datetime.datetime.now().strftime("%H:%M")
         speak(f"Relógio marca {hora} chefe")
         return
-        
+
     elif "data" in command:
         data = datetime.datetime.now().strftime("%d/%m/%Y")
         speak(f"Hoje é dia {data} chefe")
         return
-        
+
     elif "status do sistema" in command:
         cpu = psutil.cpu_percent()
         mem = psutil.virtual_memory().percent
         speak(f"Sistema operando com {cpu}% de CPU e {mem}% de memória")
         return
-        
-    # RESPOSTAS PERSONALIZADAS
+
     elif any(palavra in command for palavra in ["quem é você", "seu nome", "qual seu nome"]):
-        speak(f"Sou {ASSISTANT_NAME} à assistente pessoal do Chefe Fábio, Pronta para ajudar!")
+        speak(f"Sou {ASSISTANT_NAME} à assistente pessoal do Chefe Fábio, estou Pronta para ajudar!")
         return
-        
+
     elif "obrigado" in command or "valeu" in command:
         respostas = ["Sempre às ordens!", "De nada chefe!", "Disponha quando precisar!"]
         speak(random.choice(respostas))
         return
-        
-    # CONSULTA AO OLLAMA
+
+    # Consulta ao Ollama
     resposta = chat_with_ollama(command)
-    
-    if resposta:
-        speak(resposta)
-    else:
-        speak("Falha na análise. Reformule o comando.", 'high')
+    speak(resposta)
 
-def set_volume(level):
-    """Controla o volume do sistema"""
-    try:
-        val = int(65535 * level / 100)
-        win32api.SendMessage(
-            win32con.HWND_BROADCAST,
-            win32con.WM_APPCOMMAND,
-            0x30292,
-            val * 0x10000
-        )
-    except Exception as e:
-        print(f"Erro no volume: {str(e)}")
-
-def main():
-    """Função principal"""
-    # Mostra tela de loading
-    show_jarvis_loading()
-    
-    # Configurações iniciais
-    set_voice()
-    
-    if not check_ollama_connection():
-        speak("Atenção: Conexão com Ollama não disponível. Funcionalidades limitadas.", 'high')
-    
-    # Saudação
-    hora = datetime.datetime.now().hour
-    if 6 <= hora < 12:
-        speak("Bom dia, chefe. Sistemas operacionais normais.")
-    elif 12 <= hora < 18:
-        speak("Boa tarde, chefe. Todos os sistemas online.")
-    else:
-        speak("Boa noite, chefe. Pronta para auxiliar.")
-    
-    # Loop principal
+def aguardar_ativacao():
+    speak("Sistema iniciado. Diga 'sexta-feira' para ativar.")
     while True:
-        try:
-            comando = listen()
-            if comando:
-                execute_command(comando)
-        except KeyboardInterrupt:
-            speak("Desligamento de emergência ativado.", 'high')
-            sys.exit(1)
-        except Exception as e:
-            print(f"Erro: {str(e)}")
-            time.sleep(1)
+        comando = listen()
+        if "sexta-feira" in comando:
+            speak("Sistema ativado. Pode falar, chefe.", 'high')
+            while True:
+                comando_usuario = listen()
+                if comando_usuario:
+                    execute_command(comando_usuario)
+                else:
+                    speak("Nenhum comando detectado. Diga novamente ou diga 'finalizar' para encerrar.")
 
 if __name__ == "__main__":
-    main()
-
-
-    
+    show_jarvis_loading()
+    aguardar_ativacao()
