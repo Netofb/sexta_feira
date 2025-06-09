@@ -269,6 +269,9 @@
   ('base64',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\base64.py',
    'PYMODULE'),
+  ('bdb',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\bdb.py',
+   'PYMODULE'),
   ('bisect',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\bisect.py',
    'PYMODULE'),
@@ -321,8 +324,21 @@
   ('chunk',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\chunk.py',
    'PYMODULE'),
+  ('cmd',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\cmd.py',
+   'PYMODULE'),
+  ('code',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\code.py',
+   'PYMODULE'),
+  ('codeop',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\codeop.py',
+   'PYMODULE'),
   ('colorsys',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\colorsys.py',
+   'PYMODULE'),
+  ('commctrl',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32\\lib\\commctrl.py',
    'PYMODULE'),
   ('comtypes',
    'C:\\Users\\fabin\\OneDrive\\Área de '
@@ -773,6 +789,12 @@
   ('hmac',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\hmac.py',
    'PYMODULE'),
+  ('html',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\html\\__init__.py',
+   'PYMODULE'),
+  ('html.entities',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\html\\entities.py',
+   'PYMODULE'),
   ('http',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\http\\__init__.py',
    'PYMODULE'),
@@ -784,6 +806,9 @@
    'PYMODULE'),
   ('http.cookies',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\http\\cookies.py',
+   'PYMODULE'),
+  ('http.server',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\http\\server.py',
    'PYMODULE'),
   ('httpcore',
    'C:\\Users\\fabin\\OneDrive\\Área de '
@@ -1024,6 +1049,9 @@
   ('idna.uts46data',
    'C:\\Users\\fabin\\OneDrive\\Área de '
    'Trabalho\\jarvis\\venv\\lib\\site-packages\\idna\\uts46data.py',
+   'PYMODULE'),
+  ('imp',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\imp.py',
    'PYMODULE'),
   ('importlib',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\importlib\\__init__.py',
@@ -3778,17 +3806,259 @@
   ('optparse',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\optparse.py',
    'PYMODULE'),
+  ('packaging',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\__init__.py',
+   'PYMODULE'),
+  ('packaging._elffile',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\_elffile.py',
+   'PYMODULE'),
+  ('packaging._manylinux',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\_manylinux.py',
+   'PYMODULE'),
+  ('packaging._musllinux',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\_musllinux.py',
+   'PYMODULE'),
+  ('packaging._parser',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\_parser.py',
+   'PYMODULE'),
+  ('packaging._structures',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\_structures.py',
+   'PYMODULE'),
+  ('packaging._tokenizer',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\_tokenizer.py',
+   'PYMODULE'),
+  ('packaging.licenses',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\licenses\\__init__.py',
+   'PYMODULE'),
+  ('packaging.licenses._spdx',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\licenses\\_spdx.py',
+   'PYMODULE'),
+  ('packaging.markers',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\markers.py',
+   'PYMODULE'),
+  ('packaging.metadata',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\metadata.py',
+   'PYMODULE'),
+  ('packaging.requirements',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\requirements.py',
+   'PYMODULE'),
+  ('packaging.specifiers',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\specifiers.py',
+   'PYMODULE'),
+  ('packaging.tags',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\tags.py',
+   'PYMODULE'),
+  ('packaging.utils',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\utils.py',
+   'PYMODULE'),
+  ('packaging.version',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\packaging\\version.py',
+   'PYMODULE'),
   ('pathlib',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pathlib.py',
    'PYMODULE'),
+  ('pdb',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pdb.py',
+   'PYMODULE'),
   ('pickle',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pickle.py',
+   'PYMODULE'),
+  ('pkg_resources',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.appdirs',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\appdirs.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources._adapters',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\_adapters.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources._common',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\_common.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources._compat',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\_compat.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources._itertools',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\_itertools.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources._legacy',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\_legacy.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources.abc',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\abc.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources.readers',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\readers.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.importlib_resources.simple',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\importlib_resources\\simple.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.jaraco',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.jaraco.context',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\context.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.jaraco.functools',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\functools.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.jaraco.text',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\text\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.more_itertools',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.more_itertools.more',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\more.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.more_itertools.recipes',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\recipes.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging.__about__',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging._manylinux',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_manylinux.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging._musllinux',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_musllinux.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging._structures',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging.markers',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging.requirements',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging.specifiers',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\specifiers.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging.tags',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\tags.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging.utils',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\utils.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.packaging.version',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.actions',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\actions.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.common',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\common.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.core',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\core.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.diagram',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\diagram\\__init__.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.exceptions',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\exceptions.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.helpers',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\helpers.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.results',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\results.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.testing',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\testing.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.unicode',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\unicode.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.pyparsing.util',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\util.py',
+   'PYMODULE'),
+  ('pkg_resources._vendor.zipp',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\zipp.py',
+   'PYMODULE'),
+  ('pkg_resources.extern',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py',
    'PYMODULE'),
   ('pkgutil',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pkgutil.py',
    'PYMODULE'),
   ('platform',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\platform.py',
+   'PYMODULE'),
+  ('plistlib',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\plistlib.py',
    'PYMODULE'),
   ('pprint',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pprint.py',
@@ -4236,6 +4506,67 @@
    'C:\\Users\\fabin\\OneDrive\\Área de '
    'Trabalho\\jarvis\\venv\\lib\\site-packages\\pydantic_core\\core_schema.py',
    'PYMODULE'),
+  ('pydoc',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pydoc.py',
+   'PYMODULE'),
+  ('pydoc_data',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pydoc_data\\__init__.py',
+   'PYMODULE'),
+  ('pydoc_data.topics',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pydoc_data\\topics.py',
+   'PYMODULE'),
+  ('pygame',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\__init__.py',
+   'PYMODULE'),
+  ('pygame.colordict',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\colordict.py',
+   'PYMODULE'),
+  ('pygame.cursors',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\cursors.py',
+   'PYMODULE'),
+  ('pygame.fastevent',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\fastevent.py',
+   'PYMODULE'),
+  ('pygame.ftfont',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\ftfont.py',
+   'PYMODULE'),
+  ('pygame.macosx',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\macosx.py',
+   'PYMODULE'),
+  ('pygame.pkgdata',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\pkgdata.py',
+   'PYMODULE'),
+  ('pygame.sndarray',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\sndarray.py',
+   'PYMODULE'),
+  ('pygame.sprite',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\sprite.py',
+   'PYMODULE'),
+  ('pygame.surfarray',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\surfarray.py',
+   'PYMODULE'),
+  ('pygame.sysfont',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\sysfont.py',
+   'PYMODULE'),
+  ('pygame.threads',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\threads\\__init__.py',
+   'PYMODULE'),
+  ('pygame.version',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\pygame\\version.py',
+   'PYMODULE'),
   ('pythoncom',
    'C:\\Users\\fabin\\OneDrive\\Área de '
    'Trabalho\\jarvis\\venv\\lib\\site-packages\\pythoncom.py',
@@ -4271,6 +4602,42 @@
   ('pyttsx3.voice',
    'C:\\Users\\fabin\\OneDrive\\Área de '
    'Trabalho\\jarvis\\venv\\lib\\site-packages\\pyttsx3\\voice.py',
+   'PYMODULE'),
+  ('pywin',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\__init__.py',
+   'PYMODULE'),
+  ('pywin.dialogs',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\dialogs\\__init__.py',
+   'PYMODULE'),
+  ('pywin.dialogs.list',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\dialogs\\list.py',
+   'PYMODULE'),
+  ('pywin.dialogs.status',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\dialogs\\status.py',
+   'PYMODULE'),
+  ('pywin.mfc',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\mfc\\__init__.py',
+   'PYMODULE'),
+  ('pywin.mfc.dialog',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\mfc\\dialog.py',
+   'PYMODULE'),
+  ('pywin.mfc.object',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\mfc\\object.py',
+   'PYMODULE'),
+  ('pywin.mfc.thread',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\mfc\\thread.py',
+   'PYMODULE'),
+  ('pywin.mfc.window',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\Pythonwin\\pywin\\mfc\\window.py',
    'PYMODULE'),
   ('pywin32_system32', '-', 'PYMODULE'),
   ('pywintypes',
@@ -4387,6 +4754,9 @@
   ('socket',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\socket.py',
    'PYMODULE'),
+  ('socketserver',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\socketserver.py',
+   'PYMODULE'),
   ('speech_recognition',
    'C:\\Users\\fabin\\OneDrive\\Área de '
    'Trabalho\\jarvis\\venv\\lib\\site-packages\\speech_recognition\\__init__.py',
@@ -4485,6 +4855,9 @@
    'PYMODULE'),
   ('tracemalloc',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('tty',
+   'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\tty.py',
    'PYMODULE'),
   ('typing',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\typing.py',
@@ -4677,9 +5050,93 @@
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\webbrowser.py',
    'PYMODULE'),
   ('whisper', '-', 'PYMODULE'),
+  ('win32com',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\__init__.py',
+   'PYMODULE'),
+  ('win32com.client',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\__init__.py',
+   'PYMODULE'),
+  ('win32com.client.CLSIDToClass',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\CLSIDToClass.py',
+   'PYMODULE'),
+  ('win32com.client.build',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\build.py',
+   'PYMODULE'),
+  ('win32com.client.dynamic',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\dynamic.py',
+   'PYMODULE'),
+  ('win32com.client.gencache',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\gencache.py',
+   'PYMODULE'),
+  ('win32com.client.genpy',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\genpy.py',
+   'PYMODULE'),
+  ('win32com.client.makepy',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\makepy.py',
+   'PYMODULE'),
+  ('win32com.client.selecttlb',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\selecttlb.py',
+   'PYMODULE'),
+  ('win32com.client.util',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\client\\util.py',
+   'PYMODULE'),
+  ('win32com.server',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\server\\__init__.py',
+   'PYMODULE'),
+  ('win32com.server.dispatcher',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\server\\dispatcher.py',
+   'PYMODULE'),
+  ('win32com.server.exception',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\server\\exception.py',
+   'PYMODULE'),
+  ('win32com.server.policy',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\server\\policy.py',
+   'PYMODULE'),
+  ('win32com.server.util',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\server\\util.py',
+   'PYMODULE'),
+  ('win32com.shell',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32comext\\shell\\__init__.py',
+   'PYMODULE'),
+  ('win32com.shell.shellcon',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32comext\\shell\\shellcon.py',
+   'PYMODULE'),
+  ('win32com.universal',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\universal.py',
+   'PYMODULE'),
+  ('win32com.util',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32com\\util.py',
+   'PYMODULE'),
   ('win32con',
    'C:\\Users\\fabin\\OneDrive\\Área de '
    'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32\\lib\\win32con.py',
+   'PYMODULE'),
+  ('win32traceutil',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32\\lib\\win32traceutil.py',
+   'PYMODULE'),
+  ('winerror',
+   'C:\\Users\\fabin\\OneDrive\\Área de '
+   'Trabalho\\jarvis\\venv\\lib\\site-packages\\win32\\lib\\winerror.py',
    'PYMODULE'),
   ('xml',
    'C:\\Users\\fabin\\AppData\\Local\\Programs\\Python\\Python310\\lib\\xml\\__init__.py',

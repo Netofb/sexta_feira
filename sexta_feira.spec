@@ -5,7 +5,7 @@ a = Analysis(
     ['sexta_feira.py'],
     pathex=[],
     binaries=[],
-    datas=[('*.ico', '.'), ('*.mp3', '.'), ('*.json', '.')],
+    datas=[('friday.ico', '.'), ('sounds/*', 'sounds/')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

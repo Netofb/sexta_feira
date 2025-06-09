@@ -182,14 +182,14 @@ def listen():
         except sr.WaitTimeoutError:
             return ""
         except sr.UnknownValueError:
-            speak("Não consegui entender chefe. Repita por favor", 'high')
-            return ""
+            return ""  # Silenciosamente ignora
         except sr.RequestError:
             speak("Problema no serviço de voz. Verifique sua conexão.", 'high')
             return ""
         except Exception as e:
             print(f"Erro no reconhecimento: {str(e)}")
             return ""
+
 
 def check_ollama_connection():
     try:
@@ -251,7 +251,7 @@ def execute_command(command):
         speak("Olá chefe parabéns pelo seu trabalho, como vai seu dia?")
         return
 
-    elif "encerrar" in command:
+    elif "encerrar abertura" in command:
         os.system("taskkill /f /im brave.exe")
         speak("encerrando abertura chefe")   
         return
@@ -293,7 +293,7 @@ def execute_command(command):
         return
 
     elif any(palavra in command for palavra in ["quem é você", "seu nome", "qual seu nome"]):
-        speak(f"Sou {ASSISTANT_NAME} à assistente pessoal do Chefe Fábio, estou Pronta para ajudar!")
+        speak(f"Sou {ASSISTANT_NAME} a assistente pessoal do Chefe Fábio, estou Pronta para ajudar!")
         return
 
     elif "obrigado" in command or "valeu" in command:
@@ -306,17 +306,17 @@ def execute_command(command):
     speak(resposta)
 
 def aguardar_ativacao():
-    speak("Sistema iniciado. Diga 'sexta-feira' para ativar.")
+    speak(f"Sistema iniciado. Diga 'ativar' para chamar a {ASSISTANT_NAME}.")
     while True:
         comando = listen()
-        if "sexta-feira" in comando:
+        if "ativar" in comando:
             speak("Sistema ativado. Pode falar, chefe.", 'high')
             while True:
                 comando_usuario = listen()
-                if comando_usuario:
-                    execute_command(comando_usuario)
-                else:
-                    speak("Nenhum comando detectado. Diga novamente ou diga 'finalizar' para encerrar.")
+                if "stand by" in comando_usuario:
+                    speak("Entrando em modo de espera, chefe.")
+                    break
+                execute_command(comando_usuario)
 
 if __name__ == "__main__":
     show_jarvis_loading()
