@@ -18,6 +18,12 @@ import win32api
 import random
 import winsound
 import datetime
+from pygame.locals import *
+import numpy as np
+import math
+import time
+from OpenGL.GL import *
+from OpenGL.GLU import *
 
 # Configurações do Ollama
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -40,109 +46,101 @@ VOLUME_LEVEL = 50
 pygame.init()
 pygame.mixer.init()
 
-def show_jarvis_loading(duration=3):
-    """Animação de loading futurista estilo J.A.R.V.I.S."""
-    width, height = 800, 400
-    screen = pygame.display.set_mode((width, height), pygame.NOFRAME)
+
+
+def show_pixel_sphere():
+    """Animação de abertura com esfera 3D de pixels e nome fixo do assistente"""
+    pygame.init()
+    display = (1280, 720)
+    screen = pygame.display.set_mode(display, DOUBLEBUF | OPENGL | NOFRAME)  # NOFRAME: sem borda
+
     pygame.display.set_caption(f"{ASSISTANT_NAME} - Inicialização")
-    
-    bg_color = (2, 4, 15)
-    primary_color = (0, 200, 255)
-    secondary_color = (0, 120, 200)
-    pulse_color = (0, 255, 255)
-    text_color = (150, 230, 255)
-    
+    gluPerspective(45, (display[0] / display[1]), 0.1, 100.0)
+    glTranslatef(0.0, 0.0, -40)
+
+    # Fundo preto (simula transparência)
+    glClearColor(0.0, 0.0, 0.0, 0.0)
+
+    # Som opcional
+    pygame.mixer.init()
     try:
-        font_large = pygame.font.Font(None, 52)
-        font_medium = pygame.font.Font(None, 28)
-    except:
-        font_large = pygame.font.SysFont('consolas', 52)
-        font_medium = pygame.font.SysFont('consolas', 28)
-    
-    try:
-        pygame.mixer.music.load("startup_sound.mp3")
+        pygame.mixer.music.load("sounds/quantum_startup.mp3")
+        pygame.mixer.music.set_volume(0.7)
         pygame.mixer.music.play()
     except:
         pass
 
-    start_time = time.time()
-    center_x, center_y = width // 2, height // 2
-    radius = 110
+    num_particles = 3000
+    radius = 10
+    particles = []
 
-    particles = []  # Lista de partículas
+    for _ in range(num_particles):
+        theta = random.uniform(0, 2 * math.pi)
+        phi = random.uniform(0, math.pi)
+
+        x = radius * math.sin(phi) * math.cos(theta)
+        y = radius * math.sin(phi) * math.sin(theta)
+        z = radius * math.cos(phi)
+
+        particles.append({
+            'initial_pos': np.array([random.uniform(-50, 50),
+                                     random.uniform(-50, 50),
+                                     random.uniform(-50, 50)], dtype=np.float32),
+            'target_pos': np.array([x, y, z], dtype=np.float32),
+            'current_pos': np.array([x, y, z], dtype=np.float32),
+            'color': (random.uniform(0.1, 0.3), random.uniform(0.4, 0.8), 1.0, 1.0),
+            'size': random.uniform(1.2, 2.5),
+            'speed': random.uniform(0.01, 0.05)
+        })
+
+    # Texto do nome "Sexta-Feira" desde o início
+    font = pygame.font.SysFont('Arial', 60)
+    text_surface = font.render(ASSISTANT_NAME, True, (0, 200, 255, 255))
+    text_data = pygame.image.tostring(text_surface, "RGBA", True)
+
+    start_time = time.time()
     running = True
+    rotation_angle = 0
 
     while running:
         current_time = time.time() - start_time
-        progress = min(1.0, current_time / duration)
+        if current_time > 9:
+            break
 
         for event in pygame.event.get():
-            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
+            if event.type == pygame.QUIT:
                 running = False
 
-        screen.fill(bg_color)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-        # === Fundo com linhas circulares ===
-        for i in range(0, 360, 15):
-            angle = math.radians(i)
-            x = center_x + radius * math.cos(angle)
-            y = center_y + radius * math.sin(angle)
-            pygame.draw.line(screen, (0, 80, 120), (center_x, center_y), (x, y), 1)
+        glRotatef(0.3, 0, 1, 0)
+        rotation_angle += 0.3
 
-        # === Anel de progresso com camada dupla ===
-        progress_angle = -math.pi/2 + 2 * math.pi * progress
-        pygame.draw.circle(screen, (0, 80, 100), (center_x, center_y), radius + 15, 1)
-        pygame.draw.arc(screen, primary_color,
-                        (center_x - radius, center_y - radius, radius * 2, radius * 2),
-                        -math.pi/2, progress_angle, 6)
-
-        pygame.draw.arc(screen, secondary_color,
-                        (center_x - radius - 10, center_y - radius - 10, (radius + 10) * 2, (radius + 10) * 2),
-                        -math.pi/2, progress_angle, 2)
-
-        # === Partículas circulando ===
-        if progress < 1:
-            for _ in range(2):
-                angle = random.uniform(0, 2 * math.pi)
-                speed = random.uniform(0.5, 1.5)
-                particles.append({
-                    'angle': angle,
-                    'radius': radius,
-                    'speed': speed,
-                    'size': random.randint(2, 4)
-                })
-
-        new_particles = []
+        glPointSize(2.0)
+        glBegin(GL_POINTS)
         for p in particles:
-            p['angle'] += p['speed'] * 0.01
-            x = center_x + p['radius'] * math.cos(p['angle'])
-            y = center_y + p['radius'] * math.sin(p['angle'])
-            pygame.draw.circle(screen, pulse_color, (int(x), int(y)), p['size'])
-            if 0 < x < width and 0 < y < height:
-                new_particles.append(p)
-        particles = new_particles
+            direction = p['target_pos'] - p['current_pos']
+            distance = np.linalg.norm(direction)
+            if distance > 0.1:
+                p['current_pos'] += direction * p['speed']
 
-        # === Núcleo pulsante ===
-        pulse = int(10 + 5 * math.sin(current_time * 5))
-        pygame.draw.circle(screen, pulse_color, (center_x, center_y), pulse)
+            glColor4fv(p['color'])
+            glVertex3fv(p['current_pos'])
+        glEnd()
 
-        # === Nome do assistente ===
-        text = font_large.render(ASSISTANT_NAME.upper(), True, primary_color)
-        screen.blit(text, (center_x - text.get_width() // 2, center_y - 140))
-
-        # === Status ===
-        status = font_medium.render(f"Inicializando... {int(progress * 100)}%", True, text_color)
-        screen.blit(status, (center_x - status.get_width() // 2, center_y + radius + 40))
+        # Nome fixo desde o início
+        glPushMatrix()
+        glRotatef(-rotation_angle, 0, 1, 0)
+        glRasterPos3d(-3, 0, 0)
+        glDrawPixels(text_surface.get_width(), text_surface.get_height(),
+                     GL_RGBA, GL_UNSIGNED_BYTE, text_data)
+        glPopMatrix()
 
         pygame.display.flip()
+        pygame.time.wait(16)
 
-        if progress >= 1.0:
-            time.sleep(0.5)
-            running = False
-
-        time.sleep(0.016)  # 60 FPS
-    
     pygame.quit()
+
     pass  # por brevidade, código omitido
 
 def set_voice():
@@ -319,5 +317,5 @@ def aguardar_ativacao():
                 execute_command(comando_usuario)
 
 if __name__ == "__main__":
-    show_jarvis_loading()
+    show_pixel_sphere()
     aguardar_ativacao()
