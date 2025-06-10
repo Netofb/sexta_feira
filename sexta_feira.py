@@ -97,10 +97,7 @@ def show_pixel_sphere():
         glEnd()
 
         # Texto fixo central
-        glWindowPos2d(display[0]//2 - text_surface.get_width()//2, 
-                     display[1]//2 - text_surface.get_height()//2)
-        glDrawPixels(text_surface.get_width(), text_surface.get_height(), 
-                    GL_RGBA, GL_UNSIGNED_BYTE, text_data)
+       
 
         pygame.display.flip()
         pygame.time.wait(16)
