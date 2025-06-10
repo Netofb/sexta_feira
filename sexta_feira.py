@@ -1,68 +1,47 @@
-import pygame
 import sys
-import time
-import math
-import speech_recognition as sr
-import pyttsx3
-import requests
-from requests.exceptions import RequestException
-import json
-import webbrowser
 import os
-import subprocess
-import psutil
-import ctypes
-import win32gui
-import win32con
-import win32api
-import random
-import winsound
-import datetime
-from pygame.locals import *
-import numpy as np
 import math
 import time
+import json
+import random
+import psutil
+import pygame
+import webbrowser
+import requests
+import datetime
+import numpy as np
+import pyttsx3
+import winsound
+import speech_recognition as sr
+from requests.exceptions import RequestException
+from pygame.locals import DOUBLEBUF, OPENGL, NOFRAME, QUIT
 from OpenGL.GL import *
-from OpenGL.GLU import *
+from OpenGL.GLU import gluPerspective
 
-# Configurações do Ollama
+# Configurações
+ASSISTANT_NAME = "Sexta-Feira"
+VOICE_ID = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_PT-BR_MARIA_11.0"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 OLLAMA_MODEL = "llama3"
 OLLAMA_TIMEOUT = 15
-
-# Configurações do assistente
-ASSISTANT_NAME = "Sexta-Feira"
-VOICE_ID = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_PT-BR_MARIA_11.0"
 
 # Inicializa engine de voz
 engine = pyttsx3.init()
 engine.setProperty('rate', 180)
 engine.setProperty('volume', 0.9)
 
-# Configurações do Windows
-VOLUME_LEVEL = 50
-
-# Inicialização do Pygame
 pygame.init()
 pygame.mixer.init()
 
-
-
 def show_pixel_sphere():
-    """Animação de abertura com esfera 3D de pixels e nome fixo do assistente"""
-    pygame.init()
     display = (1280, 720)
-    screen = pygame.display.set_mode(display, DOUBLEBUF | OPENGL | NOFRAME)  # NOFRAME: sem borda
-
+    pygame.display.set_mode(display, DOUBLEBUF | OPENGL | NOFRAME)
     pygame.display.set_caption(f"{ASSISTANT_NAME} - Inicialização")
+    
     gluPerspective(45, (display[0] / display[1]), 0.1, 100.0)
     glTranslatef(0.0, 0.0, -40)
-
-    # Fundo preto (simula transparência)
     glClearColor(0.0, 0.0, 0.0, 0.0)
 
-    # Som opcional
-    pygame.mixer.init()
     try:
         pygame.mixer.music.load("sounds/quantum_startup.mp3")
         pygame.mixer.music.set_volume(0.7)
@@ -75,73 +54,59 @@ def show_pixel_sphere():
     particles = []
 
     for _ in range(num_particles):
-        theta = random.uniform(0, 2 * math.pi)
-        phi = random.uniform(0, math.pi)
-
+        theta = random.uniform(0, 2 * math.pi)  # Usando random do Python
+        phi = random.uniform(0, math.pi)       # Usando random do Python
         x = radius * math.sin(phi) * math.cos(theta)
         y = radius * math.sin(phi) * math.sin(theta)
         z = radius * math.cos(phi)
-
+        
+        # CORREÇÃO AQUI: Substitua np.random.uniform por random.uniform
         particles.append({
-            'initial_pos': np.array([random.uniform(-50, 50),
-                                     random.uniform(-50, 50),
-                                     random.uniform(-50, 50)], dtype=np.float32),
+            'initial_pos': np.array([random.uniform(-50, 50) for _ in range(3)]),
             'target_pos': np.array([x, y, z], dtype=np.float32),
-            'current_pos': np.array([x, y, z], dtype=np.float32),
+            'current_pos': np.array([random.uniform(-50, 50) for _ in range(3)]),
             'color': (random.uniform(0.1, 0.3), random.uniform(0.4, 0.8), 1.0, 1.0),
             'size': random.uniform(1.2, 2.5),
             'speed': random.uniform(0.01, 0.05)
         })
 
-    # Texto do nome "Sexta-Feira" desde o início
     font = pygame.font.SysFont('Arial', 60)
-    text_surface = font.render(ASSISTANT_NAME, True, (0, 200, 255, 255))
+    text_surface = font.render(ASSISTANT_NAME, True, (0, 200, 255))
     text_data = pygame.image.tostring(text_surface, "RGBA", True)
 
     start_time = time.time()
-    running = True
     rotation_angle = 0
 
-    while running:
-        current_time = time.time() - start_time
-        if current_time > 9:
-            break
-
+    while time.time() - start_time < 9:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-
         glRotatef(0.3, 0, 1, 0)
         rotation_angle += 0.3
 
-        glPointSize(2.0)
         glBegin(GL_POINTS)
         for p in particles:
             direction = p['target_pos'] - p['current_pos']
-            distance = np.linalg.norm(direction)
-            if distance > 0.1:
+            if np.linalg.norm(direction) > 0.1:
                 p['current_pos'] += direction * p['speed']
-
             glColor4fv(p['color'])
             glVertex3fv(p['current_pos'])
         glEnd()
 
-        # Nome fixo desde o início
-        glPushMatrix()
-        glRotatef(-rotation_angle, 0, 1, 0)
-        glRasterPos3d(-3, 0, 0)
-        glDrawPixels(text_surface.get_width(), text_surface.get_height(),
-                     GL_RGBA, GL_UNSIGNED_BYTE, text_data)
-        glPopMatrix()
+        # Texto fixo central
+        glWindowPos2d(display[0]//2 - text_surface.get_width()//2, 
+                     display[1]//2 - text_surface.get_height()//2)
+        glDrawPixels(text_surface.get_width(), text_surface.get_height(), 
+                    GL_RGBA, GL_UNSIGNED_BYTE, text_data)
 
         pygame.display.flip()
         pygame.time.wait(16)
 
     pygame.quit()
-
-    pass  # por brevidade, código omitido
+    pass
 
 def set_voice():
     try:
@@ -177,46 +142,29 @@ def listen():
             command = recognizer.recognize_google(audio, language="pt-BR")
             print(f"Você disse: {command}")
             return command.lower()
-        except sr.WaitTimeoutError:
+        except:
             return ""
-        except sr.UnknownValueError:
-            return ""  # Silenciosamente ignora
-        except sr.RequestError:
-            speak("Problema no serviço de voz. Verifique sua conexão.", 'high')
-            return ""
-        except Exception as e:
-            print(f"Erro no reconhecimento: {str(e)}")
-            return ""
-
 
 def check_ollama_connection():
     try:
-        response = requests.get("http://localhost:11434/api/tags", timeout=5)
-        return response.status_code == 200
-    except RequestException:
+        return requests.get("http://localhost:11434/api/tags", timeout=5).status_code == 200
+    except:
         return False
 
 def chat_with_ollama(prompt):
     payload = {
         "model": OLLAMA_MODEL,
-        "prompt": f"""Você é {ASSISTANT_NAME}, assistente pessoal. 
-        Responda em português brasileiro de forma concisa e profissional.
-        Contexto: {datetime.datetime.now().strftime('%d/%m/%Y %H:%M')}
-
-        Usuário: {prompt}
-        {ASSISTANT_NAME}:""",
+        "prompt": f"Você é {ASSISTANT_NAME}, assistente pessoal. Responda em português. Usuário: {prompt}\n{ASSISTANT_NAME}:",
         "stream": False,
         "options": {"temperature": 0.7}
     }
     try:
         response = requests.post(OLLAMA_URL, json=payload, timeout=OLLAMA_TIMEOUT)
         if response.status_code == 200:
-            return response.json().get("response", "Sem resposta")
+            return response.json().get("response", "Sem resposta.")
         return f"Erro no Ollama: {response.status_code}"
-    except RequestException as e:
-        return f"Erro de conexão: {str(e)}"
     except Exception as e:
-        return f"Erro inesperado: {str(e)}"
+        return f"Erro de conexão: {str(e)}"
 
 def execute_command(command):
     if not command:
